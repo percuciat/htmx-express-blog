@@ -52,7 +52,7 @@ export const Author = sequelize.define<AuthorModel>(
         author.author_name = author.author_name.toLowerCase();
       },
     },
-  }
+  },
 ) as ModelStatic<AuthorModel>;
 
 Author.hasMany(Category, {

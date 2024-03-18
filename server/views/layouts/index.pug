@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Htmx-Express project
+    link(rel='icon' href='/favicon.ico')
+    link(rel='stylesheet' href='/styles/normalize.css')
+    link(rel='stylesheet' href='/styles/reset.css')
+  body
+    .page
+        .page__content
+          .b-test test
+            h1.__title h2
+            include ../commons/navigation.pug
+
+          block content
+
+
+        footer.footer-page
+          p test include
+
+
+
+    //- block form
+    script(src='https://unpkg.com/htmx.org@1.3.1')
+    script(src='https://unpkg.com/hyperscript.org@0.0.5')

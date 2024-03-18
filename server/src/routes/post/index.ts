@@ -11,35 +11,40 @@ import { verifyToken } from "../../middlewares/auth";
 import categoryRouter from "./category";
 
 const postRouter = express.Router();
-postRouter.get("/", PostController.getPosts);
+
+//postRouter.get("/", PostController.getPosts);
+postRouter.get("/", (request, response) => {
+  response.render("post/index");
+});
+
 postRouter.get(
   "/id/:id",
   validatorMiddleware(checkGetById),
-  PostController.getPostById
+  PostController.getPostById,
 );
 postRouter.post(
   "/",
- /*  verifyToken, */
+  /*  verifyToken, */
   validatorMiddleware(checkCreatePost),
-  PostController.createPost
+  PostController.createPost,
 );
 postRouter.get(
   "/restore/id/:id",
   /* verifyToken, */
   validatorMiddleware(checkGetById),
-  PostController.restorePost
+  PostController.restorePost,
 );
 postRouter.put(
   "/id/:id",
   /* verifyToken, */
   validatorMiddleware(checkUpdatePost),
-  PostController.updatePost
+  PostController.updatePost,
 );
 postRouter.delete(
   "/id/:id",
   /* verifyToken, */
   validatorMiddleware(checkGetById),
-  PostController.deletePost
+  PostController.deletePost,
 );
 
 postRouter.use("/category", categoryRouter);

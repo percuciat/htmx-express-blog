@@ -1,0 +1,17 @@
+nav.menu.main-menu.main-menu--desktop
+  -
+    var menudata = [
+    {name : 'Главная', href: '/'},
+    {name : 'Посты', href: '/post'},
+    {name : 'Отзывы', href: '/reviews'},
+    {name : 'Контакты', href: '/contacts'}
+    ]
+  ul.menu__list
+    each item in menudata
+      li.menu__item(class=(current === item.name || section === item.name ? "active" : undefined) class=(item.sub)? "parent" : undefined)
+        a.menu__link(href=item.href) #{item.name}
+        if item.sub
+          ul.menu__sublist
+            each subitem in item.sub
+              li.menu__subitem(class=(current === subitem ? "active" : undefined))
+                a.menu__link(href="#")= subitem
